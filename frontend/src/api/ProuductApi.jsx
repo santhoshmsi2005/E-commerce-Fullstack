@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = import.meta.env.VITE_API_URL || "https://new-e-commerce-1-yejm.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL || "https://e-commerce-fullstack-ih10.onrender.com"
 
 export const getAllProducts = async () => {
     try {
