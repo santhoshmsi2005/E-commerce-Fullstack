@@ -1,45 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
-import { logoutUser } from "../api/AuthApi";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
     const { cart, clearLocalCart } = useCart();
+    const { user, token, logout } = useAuth();
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [token, setToken] = useState(null);
-    const [user, setUser] = useState(null);
     const [profileOpen, setProfileOpen] = useState(false);
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const accessToken = localStorage.getItem("temp_token");
-        const userData = localStorage.getItem("user");
-
-        setToken(accessToken);
-
-        if (userData) {
-            setUser(JSON.parse(userData));
-        }
-    }, []);
-
     const handleLogout = async () => {
         try {
-            await logoutUser();
-
-            localStorage.removeItem("temp_token");
-            localStorage.removeItem("main_token");
-            localStorage.removeItem("user");
-
-            setToken(null);
-            setUser(null);
-            
+            await logout();
             clearLocalCart();
-
             navigate("/login");
         } catch (error) {
             console.log(error);
