@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/AuthApi";
+import GoogleAuthButton from "../../components/GoogleAuthButton";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -87,6 +88,14 @@ const Login = () => {
         >
           {loading ? "Logging in..." : "Login"}
         </button>
+
+        <div className="flex items-center my-5">
+          <div className="flex-1 border-t"></div>
+          <span className="mx-3 text-gray-500">OR</span>
+          <div className="flex-1 border-t"></div>
+        </div>
+
+        <GoogleAuthButton />
 
         <p className="text-center mt-5">
           Don't have an account?{" "}

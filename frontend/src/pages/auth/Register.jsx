@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../api/AuthApi";
+import GoogleAuthButton from "../../components/GoogleAuthButton";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -92,6 +93,14 @@ const Register = () => {
         >
           {loading ? "Creating Account..." : "Register"}
         </button>
+
+        <div className="flex items-center my-5">
+          <div className="flex-1 border-t"></div>
+          <span className="mx-3 text-gray-500">OR</span>
+          <div className="flex-1 border-t"></div>
+        </div>
+
+        <GoogleAuthButton />
 
         <p className="text-center mt-5">
           Already have an account?{" "}
