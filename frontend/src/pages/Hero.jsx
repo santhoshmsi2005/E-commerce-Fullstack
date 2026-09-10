@@ -3,6 +3,7 @@ import { PiStarFourFill } from "react-icons/pi";
 import { FaArrowRight } from "react-icons/fa6";
 import HeroSectionImg from '../components/HeroSectionImg';
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -36,8 +37,12 @@ const Hero = () => {
                                 <p>spaces into something worth coming to.</p>
                             </div>
                             <div className='flex gap-3 font-DMSans flex-wrap'>
-                                <button className='bg-Primary text-white rounded-full px-6 py-3 font-bold flex gap-2 items-center hover:gap-3 transition-all duration-300 group'><span>Shop Now</span><FaArrowRight className='group-hover:scale-x-110 group-hover:-scale-y-110 transition-transform' /></button>
-                                <button className='border px-6 py-3 rounded-full font-bold hover:bg-LavenderSurface duration-200 hover:scale-105 transition-all '>View Lookbook</button>
+                                <Link to="/products">
+                                    <button className='bg-Primary text-white rounded-full px-6 py-3 font-bold flex gap-2 items-center hover:gap-3 transition-all duration-300 group'><span>Shop Now</span><FaArrowRight className='group-hover:scale-x-110 group-hover:-scale-y-110 transition-transform' /></button>
+                                </Link>
+                                <Link to="/products">
+                                    <button className='border px-6 py-3 rounded-full font-bold hover:bg-LavenderSurface duration-200 hover:scale-105 transition-all '>View Lookbook</button>
+                                </Link>
                             </div>
                             <div className='flex gap-10 font-serif'>
                                 <div>

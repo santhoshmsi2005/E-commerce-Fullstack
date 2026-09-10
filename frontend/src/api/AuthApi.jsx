@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_AUTH_API_URL || "https://e-commerce-fullstack-ih10.onrender.com/auth";
+const API_URL = import.meta.env.VITE_AUTH_API_URL || "http://localhost:3000/auth";
 
 export const registerUser = async (userData) => {
     try {
